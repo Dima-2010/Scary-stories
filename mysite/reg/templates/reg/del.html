@@ -1,0 +1,17 @@
+{% extends 'reg/index.html' %}
+
+{% block title %}Удалить{% endblock %}
+
+
+{% block body %}
+<style>
+
+</style>
+<form class="container form" method="post">
+    {% csrf_token %}
+    <div class="form-group container" align="center" style="margin-top: 30%;">
+        <h1 style="color: white;">{{ post.title }}</h1>
+    <input type="submit" class="btn btn-danger btn-lg btn-block" align="center" value="Удалить историю">
+    </div>
+</form>
+{% endblock %}

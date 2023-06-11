@@ -1,0 +1,24 @@
+{% extends 'reg/index.html' %}
+
+{% block title %}Детальнее{% endblock %}
+
+
+{% block body %}
+<style>
+
+
+</style>
+
+<div align="center" class="embed-responsive embed-responsive-16by9 video">
+    <video autoplay loop class="embed-responsive-item" controls height="600">
+        <source src="{{ Video.video_file.url }}" type="video/mp4">
+    </video>
+  <h2 class="text">
+    {{ Video.title }}
+  </h2>
+  <h3 class="text">
+    {{ Video.description}}
+  </h3>
+</div>
+
+{% endblock %}

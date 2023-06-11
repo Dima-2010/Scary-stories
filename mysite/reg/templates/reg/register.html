@@ -1,0 +1,27 @@
+{% extends 'reg/index.html' %}
+
+{% block title %}Регистрация{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <form method="post" class="box">
+                    <h1>Регистрация</h1>
+                    {% csrf_token %}
+                    {% for f in form %}
+                <p><label class="text-muted" for="{{ f.id_for_lable }}">{{f.label}}: </label>{{ f }}</p>
+                    <div class="form-errors-reg">{{ f.errors }}</div>
+                    {% endfor %}
+                    <a class="text-muted forgot" href="{% url 'login'  %}">У вас есть аккаунт?</a>
+                    <input type="submit" value="Регистрация" class="btn btn-success"></input>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

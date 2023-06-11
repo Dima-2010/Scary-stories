@@ -1,0 +1,20 @@
+{% extends 'reg/index.html' %}
+
+{% block title %}Создать{% endblock %}
+
+
+{% block body %}
+<style>
+
+</style>
+
+<form class="container form" method="post" enctype = "multipart/form-data">
+    {% csrf_token %}
+    {{ form.img }}
+    {{  form.title  }}
+    {{ form.description }}
+    {{ form.video_file }}
+    {{ form.errors }}
+      <button type="submit" class="btn btn-success">Опубликовать</button>
+</form>
+{% endblock %}

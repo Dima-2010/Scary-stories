@@ -1,0 +1,27 @@
+{% extends 'reg/index.html' %}
+
+{% block title %}Войти{% endblock %}
+
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <form method="post" class="box">
+                    <h1>Войти</h1>
+                    {% csrf_token %}
+                    <div class="form-errors-reg">{{ form.non_field_errors }}</div>
+                    {% for f in form %}
+                <p><label class="text-muted" for="{{ f.id_for_lable }}">{{f.label}}: </label>{{ f }}</p>
+                    <div class="form-errors-reg">{{ f.errors }}</div>
+                    {% endfor %}
+                    <a class="text-muted forgot"  href="{% url 'register' %}">Вы не зарегистрированы?</a>
+                    <input type="submit" value="Войти" class="btn btn-success"></input>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

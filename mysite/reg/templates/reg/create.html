@@ -1,0 +1,41 @@
+{% extends 'reg/index.html' %}
+{% block title %}Создать{% endblock %}
+
+
+{% block body %}
+<style>
+.form-check-input{
+    width: 20%;
+    height: 20vh;
+
+}
+</style>
+<!--<form class="container form" method="post">
+    {% csrf_token %}
+    <div class="form-group container">
+        <input type="hidden" name="auther" value="{{ user.username }}">
+        <input type="file" class="form-control article" name="img" accept="image/*" required="" id="id_img">
+    <input type="text" placeholder="Название" class="form-control article" name="title">
+    <input type="text" placeholder="Описание" class="form-control article" name="description">
+    <textarea class="form-control article" placeholder="Полный текст" name="full_text"></textarea>
+    <input type="submit" class="btn btn-success" value="Опубликовать">
+    </div>
+</form>
+-->
+<form class="container form" method="post" enctype = "multipart/form-data">
+    {% csrf_token %}
+    {{ form.img }}
+    {{  form.title  }}
+    {{ form.description }}
+    {{ form.full_text }}
+    {{ form.errors }}
+    <div align="center">
+    {{ form.moder }}
+        </div>
+    <div align="center">
+      <button type="submit" class="btn btn-success btn-lg">Опубликовать</button>
+    </div>
+</form>
+
+
+{% endblock %}

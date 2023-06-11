@@ -1,0 +1,19 @@
+{% extends 'reg/index.html' %}
+
+{% block title %}Создать{% endblock %}
+
+
+{% block body %}
+<style>
+
+</style>
+{% if request.user.is_authenticated and request.user.is_staff %}
+<form class="container form" method="post">
+    {% csrf_token %}
+    {{  form.title  }}
+    {{ form.text }}
+    {{ form.errors }}
+      <button type="submit" class="btn btn-success">Опубликовать</button>
+</form>
+{% endif %}
+{% endblock %}
